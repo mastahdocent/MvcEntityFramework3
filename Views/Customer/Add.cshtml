@@ -1,0 +1,32 @@
+﻿@model CustomerModel
+
+<h1>Nowy klient</h1>
+
+@using (Html.BeginForm("Add", "Customer", FormMethod.Post))
+{
+    @Html.LabelFor(x => x.FirstName)
+    @Html.TextBoxFor(x => x.FirstName)
+    <br />
+    @Html.LabelFor(x => x.LastName)
+    @Html.TextBoxFor(x => x.LastName)
+    <br />
+    @Html.LabelFor(x => x.Age)
+    @Html.TextBoxFor(x => x.Age)
+    <br />
+
+    @Html.LabelFor(x => x.Address.Street)
+    @Html.TextBoxFor(x => x.Address.Street)
+    <br />
+
+    @Html.LabelFor(x => x.Address.PostalCode)
+    @Html.TextBoxFor(x => x.Address.PostalCode)
+    <br />
+
+    @Html.LabelFor(x => x.Address.City)
+    @Html.TextBoxFor(x => x.Address.City)
+    <br />
+
+    <button>Dodaj</button>
+
+    @Html.ValidationSummary()
+}

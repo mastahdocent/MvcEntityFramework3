@@ -1,0 +1,32 @@
+﻿@model CustomerModel
+
+<h1>Dane klienta @Model.ID</h1>
+
+<table>
+    <tr>
+        <td>Imię i nazwisko:</td>
+        <td>@Model.FirstName @Model.LastName</td>
+    </tr>
+    <tr>
+        <td>Wiek:</td>
+        <td>@Model.Age</td>
+    </tr>
+    <tr>
+        <td>Ulica:</td>
+        <td>@Model.Address?.Street</td>
+    </tr>
+    <tr>
+        <td>Kod pocztowy i miasto:</td>
+        <td>@Model.Address?.PostalCode @Model.Address?.City</td>
+    </tr>
+    <tr>
+        <td>Data dodania:</td>
+        <td>@Model.DateAdded</td>
+    </tr>
+    <tr>
+        <td>Data aktualizacji:</td>
+        <td>@Model.DateUpdated</td>
+    </tr>
+</table>
+
+@Html.ActionLink("lista konsultacji", "Index", "Consultation", new { Model.ID })

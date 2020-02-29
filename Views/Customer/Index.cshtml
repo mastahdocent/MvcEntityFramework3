@@ -1,0 +1,32 @@
+﻿@model List<CustomerModel>
+
+<h1>Lista klientów</h1>
+
+<table>
+    <tr>
+        <td>ID</td>
+        <td>Imię i nazwisko</td>
+        <td>Wiek</td>
+        <td>Adres</td>
+        <td>Data dodania</td>
+        <td>Data aktualizacji</td>
+        <td>Akcje</td>
+    </tr>
+    @foreach (var customer in Model)
+    {
+        <tr>
+            <td>@customer.ID</td>
+            <td>@customer.FirstName @customer.LastName</td>
+            <td>@customer.Age</td>
+            <td>@customer.Address?.Street, @customer.Address?.PostalCode @customer.Address?.City</td>
+            <td>@customer.DateAdded</td>
+            <td>@customer.DateUpdated</td>
+            <td>
+                @Html.ActionLink("szczegóły", "Detail", "Customer", new { @customer.ID })
+                @Html.ActionLink("konsultacje", "Index", "Consultation", new { @customer.ID })
+            </td>
+        </tr>
+    }
+</table>
+
+@Html.ActionLink("dodaj klienta", "Add", "Customer")

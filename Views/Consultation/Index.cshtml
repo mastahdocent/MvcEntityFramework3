@@ -1,0 +1,19 @@
+﻿@model CustomerModel
+
+<h1>Konsultacje klienta @Model.FirstName @Model.LastName</h1>
+
+<table>
+    <tr>
+        <td>ID</td>
+        <td>Temat</td>
+        <td>Opis</td>
+    </tr>
+    @foreach (var consultation in Model.Consultations)
+    {
+        <tr>
+            <td>@consultation.ID</td>
+            <td>@consultation.Subject</td>
+            <td>@consultation.Description</td>
+        </tr>
+    }
+</table>

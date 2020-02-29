@@ -1,0 +1,17 @@
+﻿@model ConsultationModel
+
+<h1>Nowa konsultacja</h1>
+
+@using (Html.BeginForm("Add", "Consultation", FormMethod.Post))
+{
+    @Html.LabelFor(x => x.Subject)
+    @Html.TextBoxFor(x => x.Subject)
+    <br />
+    @Html.LabelFor(x => x.Description)
+    @Html.TextAreaFor(x => x.Description)
+    <br />
+
+    <button>Dodaj</button>
+
+    @Html.ValidationSummary()
+}
